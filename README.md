@@ -2,7 +2,6 @@
 
 **NABpred: a dedicated nucleic acid-binding protein predictor reveals systematic confounding in LLPS models**
 
-Ashraf MU, Ahmad O, Khan RH (2025) *NAR Methods*
 
 ---
 
