@@ -17,7 +17,7 @@
 | `X_train.npy` | 7.3 MB | Precomputed ESM2-650M embeddings for 711 training proteins (shape: 711 × 2560) |
 | `X_human_NAB_proteome.npy` | 137 MB | Precomputed ESM2-650M embeddings for 13,349 human NABs (shape: 13349 × 2560) |
 
-Download from: [Zenodo DOI link]
+Download from: [[Zenodo DOI link]](https://doi.org/10.5281/zenodo.20407029)
 
 ## Column descriptions
 
