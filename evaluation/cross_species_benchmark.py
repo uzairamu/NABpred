@@ -1,3 +1,9 @@
+# NOTE: Before running, download required files from Zenodo:
+#   python download_weights.py          # model checkpoint
+#   # Download X_train.npy from https://doi.org/10.5281/zenodo.20407029
+#
+# Zenodo DOI: 10.5281/zenodo.20407029
+# GitHub: https://github.com/uzairamu/NABpred
 """
 Cross-species benchmark (Fig. 5): per-organism sensitivity for NABpred,
 PScore, PICNIC, and PSPire on data/cross_species/cross_species_fiveway_final.csv.

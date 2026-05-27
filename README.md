@@ -9,6 +9,9 @@
 
 NABpred is a lightweight classifier for predicting liquid–liquid phase separation (LLPS) propensity in nucleic acid-binding proteins (NABs). It uses mean+max-pooled [ESM2-650M](https://huggingface.co/facebook/esm2_t33_650M_UR50D) embeddings as input to a shallow MLP trained on 711 human NABs (400 LLPS-positive, 311 non-LLPS). NABpred achieves strong performance on held-out human NABs and generalises across five non-human species, while existing generic LLPS predictors trained without NAB-specific curation show inflated performance attributable to nucleic acid-binding bias.
 
+**Web server:** https://nabpred.com
+**Zenodo DOI:** https://doi.org/10.5281/zenodo.20407029
+
 ---
 
 ## Repository structure
@@ -24,24 +27,25 @@ NABpred/
 │   ├── README.md         # Data dictionary
 │   ├── training_labels.csv
 │   ├── holdout/
+│   │   └── final_dataset_corrected.csv
 │   ├── cross_species/
+│   │   └── cross_species_fiveway_final.csv
 │   └── phasepdb/
+│       ├── phasepdb_independent_corrected.csv
+│       └── catgranule_phasepdb_results.csv
 ├── evaluation/
 │   ├── holdout_benchmark.py
 │   ├── cross_species_benchmark.py
 │   ├── ablation_study.py
 │   └── phasepdb_benchmark.py
-├── figures/
-│   ├── generate_Fig3B_loss_curves.py
-│   ├── generate_Fig4_holdout_benchmark.py
-│   ├── generate_Fig5_cross_species.py
-│   ├── generate_Fig6_proteome_screening.py
-│   └── generate_supplementary_figures.py
-├── screening/
-│   └── screen_human_NABs.py
-└── results/
-    ├── novel_LLPS_candidates.csv
-    └── human_NAB_proteome_scored.csv
+├── results/
+│   ├── novel_LLPS_candidates.csv
+│   └── human_NAB_proteome_scored.csv
+├── download_weights.py
+├── requirements.txt
+├── LICENSE
+├── .gitignore
+└── README.md
 ```
 
 ---
@@ -61,7 +65,14 @@ or with pip:
 pip install -r requirements.txt
 ```
 
-### 2. Predict on your own sequences (FASTA)
+### 2. Download model weights
+
+```bash
+python download_weights.py
+# Saves to checkpoints/final_mlp_model.pt  (~50 MB from Zenodo)
+```
+
+### 3. Predict on your own sequences (FASTA)
 
 ```bash
 python model/predict.py \
@@ -70,9 +81,9 @@ python model/predict.py \
   --output results/my_predictions.csv
 ```
 
-### 3. Predict from precomputed embeddings
+### 4. Predict from precomputed embeddings
 
-Download `X_train.npy` and `X_human_NAB_proteome.npy` from [Zenodo](https://doi.org/10.5281/zenodo.XXXXXXX).
+Download `X_train.npy` and `X_human_NAB_proteome.npy` from [Zenodo](https://doi.org/10.5281/zenodo.20407029).
 
 ```bash
 python model/predict.py \
@@ -82,7 +93,7 @@ python model/predict.py \
   --output results/my_predictions.csv
 ```
 
-### 4. Retrain the model
+### 5. Retrain the model
 
 ```bash
 python model/train.py \
@@ -122,7 +133,7 @@ The precomputed ESM2-650M embedding arrays are too large for GitHub and are host
 | `X_train.npy` | 7.3 MB | Embeddings for 711 training proteins (711 × 2560) |
 | `X_human_NAB_proteome.npy` | 137 MB | Embeddings for 13,349 human NABs (13349 × 2560) |
 
-Download: [Zenodo DOI](https://doi.org/10.5281/zenodo.XXXXXXX)
+Download: [Zenodo DOI](https://doi.org/10.5281/zenodo.20407029)
 
 ---
 
