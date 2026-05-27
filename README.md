@@ -26,8 +26,6 @@ NABpred/
 │   ├── holdout/
 │   ├── cross_species/
 │   └── phasepdb/
-├── checkpoints/
-│   └── final_mlp_model.pt
 ├── evaluation/
 │   ├── holdout_benchmark.py
 │   ├── cross_species_benchmark.py
