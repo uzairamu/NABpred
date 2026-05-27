@@ -113,16 +113,6 @@ python evaluation/ablation_study.py
 
 ---
 
-## Figures
-
-```bash
-python figures/generate_Fig3B_loss_curves.py
-python figures/generate_Fig4_holdout_benchmark.py
-python figures/generate_Fig5_cross_species.py
-python figures/generate_Fig6_proteome_screening.py
-python figures/generate_supplementary_figures.py
-```
-
 ---
 
 ## Large data files (Zenodo)
@@ -138,17 +128,7 @@ Download: [Zenodo DOI](https://doi.org/10.5281/zenodo.XXXXXXX)
 
 ---
 
-## Citation
 
-```bibtex
-@article{ashraf2025nabpred,
-  title   = {NABpred: a dedicated nucleic acid-binding protein predictor
-             reveals systematic confounding in LLPS models},
-  author  = {Ashraf, Muhammad Uzair and Ahmad, Owais and Khan, Rizwan Hasan},
-  journal = {NAR Methods},
-  year    = {2025},
-}
-```
 
 ---
 
